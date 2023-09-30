@@ -41,15 +41,16 @@ document.body.appendChild(renderer.domElement);
 
 // Including one geometry
 
-const material = new THREE.MeshMatcapMaterial();
+
 
 const geometryZero = new THREE.TorusKnotGeometry( 80, 40, 1000, 320 );
-const materialZero= new THREE.MeshMatcapMaterial();
+const material = new THREE.MeshMatcapMaterial();
+const matcaptexture = new THREE.TextureLoader().load('https://png.pngtree.com/thumb_back/fh260/background/20201104/pngtree-hologram-color-mix-background-image_457908.jpg');
 
-const matcapTextureZero= new THREE.TextureLoader().load('https://freepbr.com/wp-content/uploads/2019/06/streaked-metal1-preview-325x325.jpg');
+material.matcap = matcaptexture;
 
 const TorusKnot = new THREE.Mesh( geometryZero, material );
-matcapTextureZero.matcap = matcapTextureZero;
+
 
 
 const geometryOne = new THREE.TorusGeometry( 300, 40, 150, 100);
@@ -58,7 +59,7 @@ const materialOne = new THREE.MeshMatcapMaterial();
 const matcapTextureOne = new THREE.TextureLoader().load('https://th.bing.com/th/id/OIP.4TjPhmJ7PZJPuFb1lho4UQHaHa?pid=ImgDet&rs=1');
 materialOne.matcap = matcapTextureOne;
 
-const TorusOne= new THREE.Mesh( geometryOne, materialOne);
+const TorusOne= new THREE.Mesh( geometryOne, material);
 
 const geometryTwo = new THREE.TorusGeometry( 300, 40, 150, 100);
 const materialTwo = new THREE.MeshMatcapMaterial();
@@ -66,7 +67,7 @@ const materialTwo = new THREE.MeshMatcapMaterial();
 const matcapTexture = new THREE.TextureLoader().load('https://th.bing.com/th/id/OIP.4TjPhmJ7PZJPuFb1lho4UQHaHa?pid=ImgDet&rs=1');
 materialTwo.matcap = matcapTexture;
 
-const Torus= new THREE.Mesh( geometryTwo, materialTwo);
+const Torus= new THREE.Mesh( geometryTwo, material);
 
 Torus.position.x = 550;
 TorusOne.position.x = 490;
